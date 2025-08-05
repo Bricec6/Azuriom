@@ -206,7 +206,7 @@ class PluginManager extends ExtensionManager
     {
         $paths = $this->files->directories($this->pluginsPath);
 
-        return array_map($this->files->basename(...), $paths);
+        return array_map(fn ($dir) => $this->files->basename($dir), $paths);
     }
 
     /**
@@ -342,17 +342,17 @@ class PluginManager extends ExtensionManager
 
     public function getRouteDescriptions(): Collection
     {
-        return $this->routeDescriptions->flatMap(value(...));
+        return $this->routeDescriptions->flatMap(fn ($value) => value($value));
     }
 
     public function getAdminNavItems(): Collection
     {
-        return $this->adminNavItems->flatMap(value(...));
+        return $this->adminNavItems->flatMap(fn ($value) => value($value));
     }
 
     public function getUserNavItems(): Collection
     {
-        return $this->userNavItems->flatMap(value(...))
+        return $this->userNavItems->flatMap(fn ($value) => value($value))
             ->filter(fn ($item) => ! isset($item['permission']) || Gate::allows($item['permission']));
     }
 

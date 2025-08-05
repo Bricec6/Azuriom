@@ -6,7 +6,6 @@
     <div class="mb-3 col-md-6">
         <label class="form-label" for="typeSelect">{{ trans('messages.fields.type') }}</label>
         <select class="form-select @error('type') is-invalid @enderror" id="typeSelect" name="type" required v-model="type">
-            <option value="">{{ trans('messages.select') }}</option>
             @foreach($types as $type => $typeName)
                 <option value="{{ $type }}" @selected($type === old('type', $link->type ?? ''))>
                     {{ $typeName }}
@@ -24,7 +23,7 @@
 
     <div class="mb-3 col-md-6">
         <label class="form-label" for="valueInput">{{ trans('messages.fields.value') }}</label>
-        <input type="url" class="form-control @error('value') is-invalid @enderror" id="valueInput" name="value" value="{{ old('value', $link->value ?? '') }}" required placeholder="https://www.youtube.com/@Azuriom">
+        <input type="url" class="form-control @error('value') is-invalid @enderror" id="valueInput" name="value" value="{{ old('value', $link->value ?? '') }}" required placeholder="https://twitter.com/Azuriom">
 
         @error('value')
         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>

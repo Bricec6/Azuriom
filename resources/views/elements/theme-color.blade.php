@@ -6,6 +6,11 @@
         --bs-primary-text-emphasis: {{ color_shade($color, 0.6) }};
         --bs-primary-bg-subtle: {{ color_tint($color, 0.8) }};
         --bs-primary-border-subtle: {{ color_tint($color, 0.6) }};
+        --bs-secondary: {{ $color }};
+        --bs-secondary-rgb: {{ color_rgb($color) }};
+        --bs-secondary-text-emphasis: {{ color_shade($color, 0.6) }};
+        --bs-secondary-bg-subtle: {{ color_tint($color, 0.8) }};
+        --bs-secondary-border-subtle: {{ color_tint($color, 0.6) }};
         --bs-link-hover-color: {{ color_shade($color, 0.2) }};
         --bs-link-hover-color-rgb: {{ color_rgb(color_shade($color, 0.2)) }};
 
@@ -19,6 +24,9 @@
         --bs-primary-text-emphasis: {{ color_shade($color, 0.4) }};
         --bs-primary-bg-subtle: {{ color_shade($color, 0.8) }};
         --bs-primary-border-subtle: {{ color_tint($color, 0.4) }};
+        --bs-secondary-text-emphasis: {{ color_shade($color, 0.4) }};
+        --bs-secondary-bg-subtle: {{ color_shade($color, 0.8) }};
+        --bs-secondary-border-subtle: {{ color_tint($color, 0.4) }};
 
         --bs-link-color: {{ color_tint($color, 0.4) }};
         --bs-link-hover-color: {{ color_tint($color, 0.2) }};

@@ -162,7 +162,6 @@ class SettingsController extends Controller
                 'captcha.type' => $request->input('captcha'),
                 'captcha.site_key' => $request->input('site_key'),
                 'captcha.secret_key' => $request->input('secret_key'),
-                'captcha.login' => $request->filled('login_captcha'),
             ];
         } else {
             $settings = [
@@ -170,7 +169,6 @@ class SettingsController extends Controller
                 'captcha.type' => null,
                 'captcha.site_key' => null,
                 'captcha.secret_key' => null,
-                'captcha.login' => null,
             ];
         }
 
@@ -292,7 +290,6 @@ class SettingsController extends Controller
             'hashAlgorithms' => $this->hashAlgorithms,
             'currentHash' => config('hashing.driver'),
             'captchaType' => old('captcha', setting('captcha.type')),
-            'loginCaptcha' => old('captcha', setting('captcha.login')),
             'force2fa' => setting('admin.force_2fa'),
             'canForce2fa' => $request->user()->hasTwoFactorAuth(),
         ]);

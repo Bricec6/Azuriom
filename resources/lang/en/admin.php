@@ -126,7 +126,6 @@ return [
                 'recaptcha' => 'You can get reCAPTCHA keys on the <a href="https://www.google.com/recaptcha/" target="_blank" rel="noopener noreferrer">Google reCAPTCHA website</a>. You need to use reCAPTCHA <strong>v2 invisible</strong> keys.',
                 'hcaptcha' => 'You can get hCaptcha keys on the <a href="https://www.hcaptcha.com/" target="_blank" rel="noopener noreferrer">hCaptcha website</a>.',
                 'turnstile' => 'You can get Turnstil keys on the <a href="https://dash.cloudflare.com/?to=/:account/turnstile" target="_blank" rel="noopener noreferrer">Cloudflare dashboard</a>. You must select "Managed" widget.',
-                'login' => 'Enable captcha on login page',
             ],
 
             'hash' => 'Hash algorithm',
@@ -258,7 +257,7 @@ return [
         'default' => 'Default server',
         'default_info' => 'The number of players connected from the default server will be displayed on the site if the current theme supports it.',
 
-        'home_display' => 'Display this server on the homepage',
+        '&' => 'Display this server on the homepage',
         'url' => 'Join button URL',
         'url_info' => 'Leave empty to display server address. Can be a link to download the game/launcher or a URL to join the server like <code>steam://connect/&lt;ip&gt;</code>.',
 
@@ -606,10 +605,6 @@ return [
             'transfer' => 'Send money :money to user #:id',
 
             'login' => 'Successful login from :ip (2FA: :2fa)',
-            'api' => [
-                'login' => 'Successful API login from :ip (2FA: :2fa)',
-                'verified' => 'Successful API token verification from :ip',
-            ],
             '2fa' => [
                 'enabled' => 'Enabled two-factor authentication',
                 'disabled' => 'Disabled two-factor authentication',

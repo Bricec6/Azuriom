@@ -40,11 +40,6 @@ class SocialLink extends Model
             'color' => '#ff0000',
             'icon' => 'bi bi-youtube',
         ],
-        'x-twitter' => [
-            'title' => 'X (Twitter)',
-            'color' => '#898989',
-            'icon' => 'bi bi-twitter-x',
-        ],
         'steam' => [
             'title' => 'Steam',
             'color' => '#111d2e',

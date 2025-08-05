@@ -5,7 +5,6 @@ namespace Azuriom\Models;
 use Azuriom\Games\FallbackServerBridge;
 use Azuriom\Games\ServerBridge;
 use Azuriom\Models\Traits\Loggable;
-use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
@@ -212,8 +211,7 @@ class Server extends Model
     /**
      * Scope a query to only include servers which can execute commands.
      */
-    #[Scope]
-    protected function executable(Builder $query): void
+    public function scopeExecutable(Builder $query): void
     {
         $servers = collect(game()->getSupportedServers())->filter(function (string $bridge) {
             return (new $bridge($this))->canExecuteCommand();
@@ -225,8 +223,7 @@ class Server extends Model
     /**
      * Scope a query to only include servers which can be pinged.
      */
-    #[Scope]
-    protected function pingable(Builder $query): void
+    public function scopePingable(Builder $query): void
     {
         $query->whereNotIn('type', ['mc-azlink', 'steam-azlink']);
     }

@@ -4,7 +4,6 @@ namespace Azuriom\Http\Controllers\Api;
 
 use Azuriom\Http\Controllers\Controller;
 use Azuriom\Http\Resources\AuthenticatedUser as AuthenticatedUserResource;
-use Azuriom\Models\ActionLog;
 use Azuriom\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -58,7 +57,6 @@ class AuthController extends Controller
                 'status' => 'error',
                 'reason' => 'user_banned',
                 'message' => 'User banned',
-                'ban_reason' => $user->ban->reason,
             ], 403);
         }
 
@@ -90,21 +88,6 @@ class AuthController extends Controller
 
         $user->update(['access_token' => Str::random(128)]);
 
-        $user->forceFill([
-            'last_login_ip' => $request->ip(),
-            'last_login_at' => now(),
-        ])->save();
-
-        ActionLog::create([
-            'user_id' => $user->id,
-            'action' => 'users.auth.api.login',
-            'target_id' => null,
-            'data' => [
-                'ip' => $request->ip(),
-                '2fa' => $user->hasTwoFactorAuth() ? 'on' : 'off',
-            ],
-        ]);
-
         return new AuthenticatedUserResource($user);
     }
 
@@ -132,24 +115,8 @@ class AuthController extends Controller
                 'status' => 'error',
                 'reason' => 'user_banned',
                 'message' => 'User banned',
-                'ban_reason' => $user->ban->reason,
-
             ], 403);
         }
-
-        $user->forceFill([
-            'last_login_ip' => $request->ip(),
-            'last_login_at' => now(),
-        ])->save();
-
-        ActionLog::create([
-            'user_id' => $user->id,
-            'action' => 'users.auth.api.verified',
-            'target_id' => null,
-            'data' => [
-                'ip' => $request->ip(),
-            ],
-        ]);
 
         return new AuthenticatedUserResource($user);
     }
