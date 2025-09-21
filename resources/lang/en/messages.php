@@ -35,7 +35,6 @@ return [
         'edit' => 'Edit',
         'enable' => 'Enable',
         'expand' => 'Expand',
-        'filter' => 'Filter',
         'generate' => 'Generate',
         'install' => 'Install',
         'move' => 'Move',
@@ -97,6 +96,7 @@ return [
     ],
 
     'loading' => 'Loading...',
+    'select' => 'Select...',
 
     'yes' => 'Yes',
     'no' => 'No',
@@ -104,7 +104,6 @@ return [
     'other' => 'Other',
     'none' => 'None',
     'copied' => 'Copied',
-    'info' => 'Information',
     'icons' => 'You can find the list of available icons on <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap Icons</a>.',
 
     'home' => 'Home',
@@ -155,6 +154,8 @@ return [
         'change_name' => 'Change Username',
         'change_avatar' => 'Change Avatar',
         'delete_avatar' => 'Delete Avatar',
+
+        'email_limit' => 'You cannot change your email address currently, please try again in few minutes.',
 
         'avatar' => 'The avatar must be square and have a minimum size of :size pixels.',
 
@@ -236,6 +237,8 @@ return [
         'size' => 'Image #image_name# is too big (#image_size#).\nMaximum file size is #image_max_size#.',
         'error' => 'Something went wrong when uploading the image #image_name#.',
     ],
+
+    'info' => 'More information',
 
     'discord_roles' => [
         'id' => [

@@ -35,7 +35,6 @@ return [
         'edit' => 'Éditer',
         'enable' => 'Activer',
         'expand' => 'Étendre',
-        'filter' => 'Filtrer',
         'generate' => 'Générer',
         'install' => 'Installer',
         'move' => 'Déplacer',
@@ -97,6 +96,7 @@ return [
     ],
 
     'loading' => 'Chargement...',
+    'select' => 'Sélectionner...',
 
     'yes' => 'Oui',
     'no' => 'Non',
@@ -104,7 +104,6 @@ return [
     'other' => 'Autre',
     'none' => 'Aucun(e)',
     'copied' => 'Copié',
-    'info' => 'Informations',
     'icons' => 'Vous pouvez avoir la liste des icônes disponibles sur <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap Icons</a>.',
 
     'home' => 'Accueil',
@@ -155,6 +154,8 @@ return [
         'change_name' => 'Changer le pseudo',
         'change_avatar' => 'Changer d\'avatar',
         'delete_avatar' => 'Supprimer l\'avatar',
+
+        'email_limit' => 'Vous ne pouvez pas changer votre adresse email pour le moment, veuillez réessayer dans quelques minutes.',
 
         'avatar' => 'L\'avatar doit être un carré de minimum :size pixels.',
 
@@ -236,6 +237,8 @@ return [
         'size' => 'L\'image #image_name# est trop lourde (#image_size#).\nLa taille maximum est #image_max_size#.',
         'error' => 'Une erreur est survenue lors du téléchargement de l\'image #image_name#.',
     ],
+
+    'info' => 'Plus d\'informations',
 
     'discord_roles' => [
         'id' => [

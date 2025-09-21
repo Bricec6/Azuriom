@@ -2,6 +2,7 @@
 @include('elements.base')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    @includeIf('seo-lite::providers.seo-lite')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description', setting('description', ''))">
@@ -67,7 +68,7 @@
 <footer class="text-center text-bg-dark mt-auto py-4">
     <div class="copyright">
         <div class="container">
-            <p>{{ setting('copyright') }} | @lang('messages.copyright')</p>
+            <p>{{ str_replace('{year}', date('Y'), setting('copyright')) }} | @lang('messages.copyright')</p>
 
             @foreach(social_links() as $link)
                 <a href="{{ $link->value }}" title="{{ $link->title }}" target="_blank" rel="noopener noreferrer"
