@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Lite Diagnostic Test</title>
+    <meta name="description" content="This is a comprehensive test page to diagnose SEO Lite plugin issues including readability scoring, keyword analysis, image optimization, and recommendations functionality.">
+
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div class="container mt-5">
+            <h1>SEO Lite Plugin Diagnostic Test</h1>
+
+            <div class="alert alert-info">
+                <h4>Diagnostic Test Results</h4>
+                <div id="diagnostic-results">
+                    <p>Running diagnostics... Check console for detailed results.</p>
+                </div>
+            </div>
+
+            <h2>Test Content for SEO Analysis</h2>
+
+            <p>This paragraph contains comprehensive content designed to test the SEO plugin functionality. It includes multiple sentences with varying complexity levels to properly test the Flesch readability scoring system. The content is structured to provide meaningful analysis data for all SEO metrics including word count, sentence analysis, and overall content quality evaluation.</p>
+
+            <h3>Images for Testing</h3>
+            <img src="https://via.placeholder.com/300x200.jpg" alt="Test JPEG image with alt text" class="img-fluid mb-3">
+            <img src="https://via.placeholder.com/400x300.png" alt="Test PNG image with alt text" class="img-fluid mb-3">
+            <img src="https://via.placeholder.com/500x300.webp" alt="Test WebP image with alt text" class="img-fluid mb-3">
+            <img src="https://via.placeholder.com/200x150.gif" class="img-fluid mb-3">
+
+            <h4>Additional Test Content</h4>
+            <p>More comprehensive content to ensure adequate text volume for proper analysis. This section helps test word counting, sentence structure analysis, and readability metrics. The text is intentionally varied in complexity to test different readability score ranges and ensure the Flesch scoring algorithm works correctly across different content types.</p>
+
+            <h5>Keyword Testing Section</h5>
+            <p>This section contains the keyword "testing" multiple times to test keyword density analysis. The testing functionality should detect testing occurrences and calculate proper testing density percentages. Testing keyword analysis is crucial for testing SEO optimization.</p>
+
+            <h6>Final Test Section</h6>
+            <p>Final comprehensive paragraph to complete the content structure and provide a thorough test environment for all SEO analysis tools and scoring mechanisms.</p>
+
+            <!-- Keyword Analysis Test Form -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>Keyword Analysis Test</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="keyword-input" class="form-label">Test Keyword:</label>
+                        <input type="text" class="form-control" id="keyword-input" placeholder="Enter keyword to test">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="analyze-keyword-btn">Analyze Keyword</button>
+
+                    <div class="mt-3">
+                        <div id="keyword-diagnostic" class="alert alert-secondary">
+                            <strong>Keyword Analysis Results:</strong>
+                            <div>Analyzed keyword: <span id="analyzed-keyword">-</span></div>
+                            <div>Density: <span id="keyword-density">-</span></div>
+                            <div>Occurrences: <span id="keyword-occurrences">-</span></div>
+                            <div>Total words: <span id="total-words">-</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Readability Test Display -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>Readability Analysis Test</h5>
+                </div>
+                <div class="card-body">
+                    <div>Readability Score: <span id="readability-score">-</span></div>
+                    <div>Level: <span id="readability-level">-</span></div>
+                    <div>Word Count: <span id="word-count">-</span></div>
+                    <div>Sentence Count: <span id="sentence-count">-</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Comprehensive diagnostic script for SEO Lite
+        console.log('🔍 SEO Lite Comprehensive Diagnostic Starting...');
+
+        let diagnosticResults = [];
+
+        function addDiagnosticResult(test, status, message) {
+            diagnosticResults.push({ test, status, message });
+            console.log(`${status === 'PASS' ? '✅' : '❌'} ${test}: ${message}`);
+        }
+
+        function updateDiagnosticDisplay() {
+            const resultsDiv = document.getElementById('diagnostic-results');
+            let html = '<ul class="list-unstyled">';
+
+            diagnosticResults.forEach(result => {
+                const icon = result.status === 'PASS' ? '✅' : '❌';
+                const colorClass = result.status === 'PASS' ? 'text-success' : 'text-danger';
+                html += `<li class="${colorClass}"><strong>${icon} ${result.test}:</strong> ${result.message}</li>`;
+            });
+
+            html += '</ul>';
+            resultsDiv.innerHTML = html;
+        }
+
+        // Wait for page to load completely
+        window.addEventListener('load', function() {
+            console.log('📄 Page loaded, starting comprehensive diagnostics...');
+
+            setTimeout(function() {
+                // Test 1: Check if SEO Lite elements exist
+                const seoTrigger = document.getElementById('seo-lite-trigger');
+                const seoOffcanvas = document.getElementById('seoliteOffcanvas');
+
+                if (seoTrigger) {
+                    addDiagnosticResult('SEO Trigger Button', 'PASS', 'SEO Lite trigger button found');
+                } else {
+                    addDiagnosticResult('SEO Trigger Button', 'FAIL', 'SEO Lite trigger button not found');
+                }
+
+                if (seoOffcanvas) {
+                    addDiagnosticResult('SEO Offcanvas', 'PASS', 'SEO Lite offcanvas found');
+                } else {
+                    addDiagnosticResult('SEO Offcanvas', 'FAIL', 'SEO Lite offcanvas not found');
+                }
+
+                // Test 2: Check translation function
+                if (typeof window.trans === 'function') {
+                    const testTrans = window.trans('seo-lite::messages.chars');
+                    if (testTrans && !testTrans.includes('{{') && !testTrans.includes('}}')) {
+                        addDiagnosticResult('Translation System', 'PASS', `Translation working: "${testTrans}"`);
+                    } else {
+                        addDiagnosticResult('Translation System', 'FAIL', `Translation broken: "${testTrans}"`);
+                    }
+                } else {
+                    addDiagnosticResult('Translation System', 'FAIL', 'Translation function not available');
+                }
+
+                // Test 3: Check constants availability
+                if (typeof TIMEOUTS !== 'undefined' && typeof SEO_SCORES !== 'undefined') {
+                    addDiagnosticResult('Constants Loading', 'PASS', 'SEO constants loaded correctly');
+                } else {
+                    addDiagnosticResult('Constants Loading', 'FAIL', 'SEO constants not loaded');
+                }
+
+                // Test 4: Check utility functions
+                if (typeof getElements === 'function' && typeof getPageTextContent === 'function') {
+                    addDiagnosticResult('Utility Functions', 'PASS', 'Utility functions loaded correctly');
+                } else {
+                    addDiagnosticResult('Utility Functions', 'FAIL', 'Utility functions not loaded');
+                }
+
+                // Test 5: Check SEO analysis functions
+                if (typeof scoreFlesch === 'function' && typeof calculateKeywordDensity === 'function') {
+                    addDiagnosticResult('SEO Analysis Functions', 'PASS', 'SEO analysis functions loaded correctly');
+                } else {
+                    addDiagnosticResult('SEO Analysis Functions', 'FAIL', 'SEO analysis functions not loaded');
+                }
+
+                // Test 6: Check scoring functions
+                if (typeof calculateSEOTotalScore === 'function' && typeof calculateReadabilityScore === 'function') {
+                    addDiagnosticResult('Scoring Functions', 'PASS', 'Scoring functions loaded correctly');
+                } else {
+                    addDiagnosticResult('Scoring Functions', 'FAIL', 'Scoring functions not loaded');
+                }
+
+                // Test 7: Check recommendations functions
+                if (typeof createListOfRecommendations === 'function') {
+                    addDiagnosticResult('Recommendations Functions', 'PASS', 'Recommendations functions loaded correctly');
+                } else {
+                    addDiagnosticResult('Recommendations Functions', 'FAIL', 'Recommendations functions not loaded');
+                }
+
+                // Test 8: Test readability calculation
+                try {
+                    if (typeof getPageTextContent === 'function' && typeof scoreFlesch === 'function') {
+                        const textContent = getPageTextContent();
+                        const fleschResult = scoreFlesch(textContent);
+                        if (fleschResult && fleschResult.score !== undefined) {
+                            addDiagnosticResult('Readability Calculation', 'PASS', `Flesch score: ${fleschResult.score}, Level: ${fleschResult.level}`);
+                        } else {
+                            addDiagnosticResult('Readability Calculation', 'FAIL', 'Flesch calculation returned invalid result');
+                        }
+                    } else {
+                        addDiagnosticResult('Readability Calculation', 'FAIL', 'Required functions not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Readability Calculation', 'FAIL', `Error: ${error.message}`);
+                }
+
+                // Test 9: Test keyword analysis
+                try {
+                    if (typeof calculateKeywordDensity === 'function' && typeof getPageTextContent === 'function') {
+                        const textContent = getPageTextContent();
+                        const keywordAnalysis = calculateKeywordDensity('testing', textContent);
+                        if (keywordAnalysis && keywordAnalysis.density !== undefined) {
+                            addDiagnosticResult('Keyword Analysis', 'PASS', `Keyword density: ${keywordAnalysis.density}%, Occurrences: ${keywordAnalysis.occurrences}`);
+                        } else {
+                            addDiagnosticResult('Keyword Analysis', 'FAIL', 'Keyword analysis returned invalid result');
+                        }
+                    } else {
+                        addDiagnosticResult('Keyword Analysis', 'FAIL', 'Required functions not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Keyword Analysis', 'FAIL', `Error: ${error.message}`);
+                }
+
+                // Test 10: Test image optimization
+                try {
+                    if (typeof analyzeImageOptimization === 'function') {
+                        const images = document.querySelectorAll('img');
+                        const imageAnalysis = analyzeImageOptimization(images);
+                        if (imageAnalysis && imageAnalysis.totalImages !== undefined) {
+                            addDiagnosticResult('Image Optimization', 'PASS', `Found ${imageAnalysis.totalImages} images, ${imageAnalysis.webpCount} WebP, ${imageAnalysis.otherCount} other formats`);
+                        } else {
+                            addDiagnosticResult('Image Optimization', 'FAIL', 'Image analysis returned invalid result');
+                        }
+                    } else {
+                        addDiagnosticResult('Image Optimization', 'FAIL', 'analyzeImageOptimization function not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Image Optimization', 'FAIL', `Error: ${error.message}`);
+                }
+
+                // Test 11: Test SEO total score calculation
+                try {
+                    if (typeof calculateSEOTotalScore === 'function') {
+                        const totalScore = calculateSEOTotalScore();
+                        if (totalScore && totalScore.total !== undefined) {
+                            addDiagnosticResult('SEO Total Score', 'PASS', `Total score: ${totalScore.total}/${totalScore.max} (${totalScore.percentage}%)`);
+                        } else {
+                            addDiagnosticResult('SEO Total Score', 'FAIL', 'SEO total score calculation returned invalid result');
+                        }
+                    } else {
+                        addDiagnosticResult('SEO Total Score', 'FAIL', 'calculateSEOTotalScore function not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('SEO Total Score', 'FAIL', `Error: ${error.message}`);
+                }
+
+                // Update display
+                updateDiagnosticDisplay();
+
+                console.log('🔍 SEO Lite Comprehensive Diagnostic Completed');
+                console.log('📊 Results Summary:', diagnosticResults);
+
+            }, 3000); // Wait 3 seconds for all scripts to load
+        });
+
+        // Test keyword analysis form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const keywordInput = document.getElementById('keyword-input');
+            const analyzeBtn = document.getElementById('analyze-keyword-btn');
+
+            if (analyzeBtn) {
+                analyzeBtn.addEventListener('click', function() {
+                    console.log('🔍 Testing keyword analysis button click...');
+                    const keyword = keywordInput.value.trim();
+                    if (keyword) {
+                        console.log(`Testing keyword: "${keyword}"`);
+                        // This will test if the analyzeKeyword function works
+                        if (typeof analyzeKeyword === 'function') {
+                            analyzeKeyword();
+                        } else {
+                            console.error('analyzeKeyword function not available');
+                        }
+                    }
+                });
+            }
+
+            if (keywordInput) {
+                keywordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        console.log('🔍 Testing keyword analysis Enter key...');
+                        e.preventDefault(); // Prevent form submission/page reload
+                        analyzeBtn.click();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

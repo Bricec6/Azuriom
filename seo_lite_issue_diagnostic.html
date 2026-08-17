@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Lite Issue Diagnostic</title>
+    <meta name="description" content="Comprehensive diagnostic page to identify and fix SEO Lite plugin issues including stack overflow errors, keyword analysis problems, and readability score calculation issues.">
+
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div class="container mt-5">
+            <h1>🔧 SEO Lite Plugin Issue Diagnostic</h1>
+
+            <div class="alert alert-warning">
+                <h4>🚨 Current Issues Being Diagnosed:</h4>
+                <ul class="mb-0">
+                    <li><strong>Stack Overflow Error:</strong> "Error calculating image optimization score: RangeError: Maximum call stack size exceeded"</li>
+                    <li><strong>Keyword Analysis Not Working:</strong> No response when entering words in keyword field</li>
+                    <li><strong>Readability Score Stuck:</strong> Shows "Analyzing..." and doesn't read body content</li>
+                </ul>
+            </div>
+
+            <div id="diagnostic-results" class="alert alert-info">
+                <h5>🔍 Diagnostic Results</h5>
+                <div id="results-content">Running comprehensive diagnostics...</div>
+            </div>
+
+            <h2>Test Content for Analysis</h2>
+
+            <p>This comprehensive test content is designed to trigger all SEO analysis functions. The content includes multiple sentences with varying complexity levels to test readability scoring. It contains specific keywords like "optimization" and "analysis" multiple times to test keyword density calculations. The text structure provides meaningful data for testing word counting, sentence analysis, and overall content quality evaluation systems.</p>
+
+            <h3>Images for Testing (Multiple Formats)</h3>
+            <img src="https://via.placeholder.com/300x200.jpg" alt="Test JPEG image" class="img-fluid mb-3">
+            <img src="https://via.placeholder.com/400x300.png" alt="Test PNG image" class="img-fluid mb-3">
+            <img src="https://via.placeholder.com/500x300.webp" alt="Test WebP image" class="img-fluid mb-3">
+            <img src="https://via.placeholder.com/200x150.gif" class="img-fluid mb-3">
+
+            <h4>Additional Test Content</h4>
+            <p>More comprehensive content for analysis testing. This section helps test optimization algorithms and analysis functions. The optimization process should detect analysis patterns and calculate proper optimization metrics for analysis purposes.</p>
+
+            <!-- Keyword Analysis Test Interface -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>🔍 Keyword Analysis Test Interface</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="keyword-input" class="form-label">Test Keyword:</label>
+                        <input type="text" class="form-control" id="keyword-input" placeholder="Try 'optimization' or 'analysis'" value="optimization">
+                        <small class="form-text text-muted">Test both button click and Enter key</small>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="analyze-keyword-btn">Analyze Keyword</button>
+
+                    <div class="mt-3">
+                        <div id="keyword-diagnostic" class="alert alert-secondary">
+                            <strong>Keyword Analysis Results:</strong>
+                            <div>Analyzed keyword: <span id="analyzed-keyword">-</span></div>
+                            <div>Density: <span id="keyword-density">-</span></div>
+                            <div>Occurrences: <span id="keyword-occurrences">-</span></div>
+                            <div>Total words: <span id="total-words">-</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Readability Test Display -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>📖 Readability Analysis Test</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>Readability Score: <span id="readability-score" class="fw-bold text-primary">-</span></div>
+                            <div>Level: <span id="readability-level" class="fw-bold text-info">-</span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>Word Count: <span id="word-count" class="fw-bold text-success">-</span></div>
+                            <div>Sentence Count: <span id="sentence-count" class="fw-bold text-warning">-</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Score Test Display -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>🎯 SEO Score Test (Stack Overflow Check)</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Total Score:</h6>
+                            <div class="display-6">
+                                <span id="seo-total-score" class="text-primary">-</span>
+                                <small class="text-muted">/ <span id="seo-total-score-max">100</span></small>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h6>Section Scores:</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>Meta: <span id="SEOLITE_metas--score">-</span>/<span id="SEOLITE_metas--score-max">30</span></div>
+                                    <div>Headings: <span id="SEOLITE_headings--score">-</span>/<span id="SEOLITE_headings--score-max">10</span></div>
+                                    <div>Images Alt: <span id="SEOLITE_imgAlt--score">-</span>/<span id="SEOLITE_imgAlt--score-max">20</span></div>
+                                </div>
+                                <div class="col-6">
+                                    <div>Readability: <span id="SEOLITE_readability--score">-</span>/<span id="SEOLITE_readability--score-max">20</span></div>
+                                    <div>Image Opt: <span id="SEOLITE_imageOptimization--score">-</span>/<span id="SEOLITE_imageOptimization--score-max">20</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Comprehensive diagnostic script for SEO Lite issues
+        console.log('🔧 SEO Lite Issue Diagnostic Starting...');
+
+        let diagnosticResults = [];
+        let criticalErrors = [];
+
+        function addDiagnosticResult(category, test, status, message, details = '', error = null) {
+            const result = { category, test, status, message, details, error };
+            diagnosticResults.push(result);
+
+            if (status === 'FAIL' && error) {
+                criticalErrors.push(result);
+            }
+
+            const icon = status === 'PASS' ? '✅' : status === 'WARN' ? '⚠️' : '❌';
+            console.log(`${icon} [${category}] ${test}: ${message}${details ? ' - ' + details : ''}`);
+
+            if (error) {
+                console.error(`   Error Details:`, error);
+            }
+        }
+
+        function updateDiagnosticDisplay() {
+            const resultsDiv = document.getElementById('results-content');
+            const passCount = diagnosticResults.filter(r => r.status === 'PASS').length;
+            const warnCount = diagnosticResults.filter(r => r.status === 'WARN').length;
+            const failCount = diagnosticResults.filter(r => r.status === 'FAIL').length;
+
+            let html = `
+                <div class="mb-3">
+                    <strong>Summary:</strong>
+                    <span class="badge bg-success">${passCount} Passed</span>
+                    <span class="badge bg-warning">${warnCount} Warnings</span>
+                    <span class="badge bg-danger">${failCount} Failed</span>
+                </div>
+            `;
+
+            // Group by category
+            const categories = [...new Set(diagnosticResults.map(r => r.category))];
+
+            categories.forEach(category => {
+                const categoryResults = diagnosticResults.filter(r => r.category === category);
+                html += `<div class="mb-3">`;
+                html += `<h6 class="fw-bold">${category}</h6>`;
+
+                categoryResults.forEach(result => {
+                    const icon = result.status === 'PASS' ? '✅' : result.status === 'WARN' ? '⚠️' : '❌';
+                    const colorClass = result.status === 'PASS' ? 'text-success' : result.status === 'WARN' ? 'text-warning' : 'text-danger';
+
+                    html += `
+                        <div class="ms-3 mb-1">
+                            <span class="${colorClass}">
+                                <strong>${icon} ${result.test}:</strong> ${result.message}
+                                ${result.details ? `<br><small class="text-muted">${result.details}</small>` : ''}
+                                ${result.error ? `<br><small class="text-danger">Error: ${result.error.message}</small>` : ''}
+                            </span>
+                        </div>
+                    `;
+                });
+
+                html += `</div>`;
+            });
+
+            if (criticalErrors.length > 0) {
+                html += `
+                    <div class="alert alert-danger mt-3">
+                        <h6>🚨 Critical Errors Found:</h6>
+                        <ul class="mb-0">
+                `;
+                criticalErrors.forEach(error => {
+                    html += `<li><strong>${error.test}:</strong> ${error.error.message}</li>`;
+                });
+                html += `</ul></div>`;
+            }
+
+            resultsDiv.innerHTML = html;
+        }
+
+        // Wait for page to load completely
+        window.addEventListener('load', function() {
+            console.log('📄 Page loaded, starting issue diagnostics...');
+
+            setTimeout(function() {
+                // Test 1: Check if SEO Lite scripts are loaded
+                try {
+                    if (typeof window.trans === 'function') {
+                        addDiagnosticResult('Core', 'Translation Function', 'PASS', 'Translation function available');
+                    } else {
+                        addDiagnosticResult('Core', 'Translation Function', 'FAIL', 'Translation function not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Core', 'Translation Function', 'FAIL', 'Error checking translation function', '', error);
+                }
+
+                // Test 2: Check constants
+                try {
+                    if (typeof TIMEOUTS !== 'undefined' && typeof SEO_SCORES !== 'undefined' && typeof OFFCANVAS_IDS !== 'undefined') {
+                        addDiagnosticResult('Core', 'Constants Loading', 'PASS', 'All required constants loaded');
+                    } else {
+                        const missing = [];
+                        if (typeof TIMEOUTS === 'undefined') missing.push('TIMEOUTS');
+                        if (typeof SEO_SCORES === 'undefined') missing.push('SEO_SCORES');
+                        if (typeof OFFCANVAS_IDS === 'undefined') missing.push('OFFCANVAS_IDS');
+                        addDiagnosticResult('Core', 'Constants Loading', 'FAIL', 'Missing constants', `Missing: ${missing.join(', ')}`);
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Core', 'Constants Loading', 'FAIL', 'Error checking constants', '', error);
+                }
+
+                // Test 3: Check utility functions
+                try {
+                    if (typeof getPageTextContent === 'function' && typeof getElements === 'function' && typeof countCharacters === 'function') {
+                        addDiagnosticResult('Core', 'Utility Functions', 'PASS', 'All utility functions available');
+                    } else {
+                        const missing = [];
+                        if (typeof getPageTextContent !== 'function') missing.push('getPageTextContent');
+                        if (typeof getElements !== 'function') missing.push('getElements');
+                        if (typeof countCharacters !== 'function') missing.push('countCharacters');
+                        addDiagnosticResult('Core', 'Utility Functions', 'FAIL', 'Missing utility functions', `Missing: ${missing.join(', ')}`);
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Core', 'Utility Functions', 'FAIL', 'Error checking utility functions', '', error);
+                }
+
+                // Test 4: Test readability calculation (CRITICAL)
+                try {
+                    if (typeof calculateReadabilityScore === 'function' && typeof scoreFlesch === 'function') {
+                        const readabilityScore = calculateReadabilityScore();
+                        if (readabilityScore && readabilityScore.total !== undefined && readabilityScore.details) {
+                            addDiagnosticResult('Readability', 'Calculation Function', 'PASS', `Score: ${readabilityScore.total}/${readabilityScore.max}`, `Flesch: ${readabilityScore.details.fleschScore}, Level: ${readabilityScore.details.level}`);
+
+                            // Update display elements
+                            const scoreElement = document.getElementById('readability-score');
+                            const levelElement = document.getElementById('readability-level');
+                            const wordsElement = document.getElementById('word-count');
+                            const sentencesElement = document.getElementById('sentence-count');
+
+                            if (scoreElement) scoreElement.textContent = readabilityScore.details.fleschScore;
+                            if (levelElement) levelElement.textContent = readabilityScore.details.level;
+                            if (wordsElement) wordsElement.textContent = readabilityScore.details.wordCount;
+                            if (sentencesElement) sentencesElement.textContent = readabilityScore.details.sentenceCount;
+
+                        } else {
+                            addDiagnosticResult('Readability', 'Calculation Function', 'FAIL', 'Invalid readability score result', `Result: ${JSON.stringify(readabilityScore)}`);
+                        }
+                    } else {
+                        const missing = [];
+                        if (typeof calculateReadabilityScore !== 'function') missing.push('calculateReadabilityScore');
+                        if (typeof scoreFlesch !== 'function') missing.push('scoreFlesch');
+                        addDiagnosticResult('Readability', 'Calculation Function', 'FAIL', 'Missing readability functions', `Missing: ${missing.join(', ')}`);
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Readability', 'Calculation Function', 'FAIL', 'Error in readability calculation', '', error);
+                }
+
+                // Test 5: Test keyword analysis (CRITICAL)
+                try {
+                    if (typeof calculateKeywordDensity === 'function') {
+                        const textContent = getPageTextContent();
+                        const keywordAnalysis = calculateKeywordDensity('optimization', textContent);
+                        if (keywordAnalysis && keywordAnalysis.density !== undefined) {
+                            addDiagnosticResult('Keyword', 'Calculation Function', 'PASS', `Density: ${keywordAnalysis.density}%`, `Occurrences: ${keywordAnalysis.occurrences}, Total words: ${keywordAnalysis.totalWords}`);
+                        } else {
+                            addDiagnosticResult('Keyword', 'Calculation Function', 'FAIL', 'Invalid keyword analysis result', `Result: ${JSON.stringify(keywordAnalysis)}`);
+                        }
+                    } else {
+                        addDiagnosticResult('Keyword', 'Calculation Function', 'FAIL', 'calculateKeywordDensity function not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Keyword', 'Calculation Function', 'FAIL', 'Error in keyword analysis', '', error);
+                }
+
+                // Test 6: Test keyword analysis UI
+                try {
+                    const keywordInput = document.getElementById('keyword-input');
+                    const analyzeBtn = document.getElementById('analyze-keyword-btn');
+
+                    if (keywordInput && analyzeBtn) {
+                        addDiagnosticResult('Keyword', 'UI Elements', 'PASS', 'Keyword input and button found');
+
+                        // Test if analyzeKeyword function exists
+                        if (typeof analyzeKeyword === 'function') {
+                            addDiagnosticResult('Keyword', 'Analyze Function', 'PASS', 'analyzeKeyword function available');
+                        } else {
+                            addDiagnosticResult('Keyword', 'Analyze Function', 'FAIL', 'analyzeKeyword function not available');
+                        }
+                    } else {
+                        const missing = [];
+                        if (!keywordInput) missing.push('keyword-input');
+                        if (!analyzeBtn) missing.push('analyze-keyword-btn');
+                        addDiagnosticResult('Keyword', 'UI Elements', 'FAIL', 'Missing UI elements', `Missing: ${missing.join(', ')}`);
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Keyword', 'UI Elements', 'FAIL', 'Error checking keyword UI', '', error);
+                }
+
+                // Test 7: Test image optimization (CRITICAL - Stack Overflow Check)
+                try {
+                    if (typeof analyzeImageOptimization === 'function') {
+                        const images = document.querySelectorAll('img');
+                        console.log('Testing image optimization with', images.length, 'images...');
+
+                        const imageAnalysis = analyzeImageOptimization(images);
+                        if (imageAnalysis && imageAnalysis.totalImages !== undefined) {
+                            addDiagnosticResult('Image Optimization', 'Analysis Function', 'PASS', `${imageAnalysis.totalImages} images analyzed`, `WebP: ${imageAnalysis.webpCount}, Other: ${imageAnalysis.otherCount}, Optimization: ${imageAnalysis.optimizationPercentage}%`);
+                        } else {
+                            addDiagnosticResult('Image Optimization', 'Analysis Function', 'FAIL', 'Invalid image analysis result', `Result: ${JSON.stringify(imageAnalysis)}`);
+                        }
+                    } else {
+                        addDiagnosticResult('Image Optimization', 'Analysis Function', 'FAIL', 'analyzeImageOptimization function not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Image Optimization', 'Analysis Function', 'FAIL', 'Error in image optimization (possible stack overflow)', '', error);
+                }
+
+                // Test 8: Test SEO total score calculation (CRITICAL - Stack Overflow Check)
+                try {
+                    if (typeof calculateSEOTotalScore === 'function') {
+                        console.log('Testing SEO total score calculation...');
+
+                        const totalScore = calculateSEOTotalScore();
+                        if (totalScore && totalScore.total !== undefined) {
+                            addDiagnosticResult('SEO Score', 'Total Calculation', 'PASS', `${totalScore.total}/${totalScore.max} (${totalScore.percentage}%)`, `Meta: ${totalScore.breakdown.meta}, Headings: ${totalScore.breakdown.headings}, Alt: ${totalScore.breakdown.altImages}, Readability: ${totalScore.breakdown.readability}, Images: ${totalScore.breakdown.imageOptimization}`);
+
+                            // Update display
+                            const mainScoreElement = document.getElementById('seo-total-score');
+                            if (mainScoreElement) mainScoreElement.textContent = totalScore.total;
+
+                        } else {
+                            addDiagnosticResult('SEO Score', 'Total Calculation', 'FAIL', 'Invalid total score result', `Result: ${JSON.stringify(totalScore)}`);
+                        }
+                    } else {
+                        addDiagnosticResult('SEO Score', 'Total Calculation', 'FAIL', 'calculateSEOTotalScore function not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('SEO Score', 'Total Calculation', 'FAIL', 'Error in SEO score calculation (possible stack overflow)', '', error);
+                }
+
+                // Test 9: Test recommendations system
+                try {
+                    if (typeof analyzeAllRecommendations === 'function') {
+                        const recommendations = analyzeAllRecommendations();
+                        if (recommendations && Array.isArray(recommendations)) {
+                            addDiagnosticResult('Recommendations', 'Generation Function', 'PASS', `${recommendations.length} recommendations generated`, `High: ${recommendations.filter(r => r.severity === 'high').length}, Medium: ${recommendations.filter(r => r.severity === 'medium').length}, Low: ${recommendations.filter(r => r.severity === 'low').length}, Info: ${recommendations.filter(r => r.severity === 'info').length}`);
+                        } else {
+                            addDiagnosticResult('Recommendations', 'Generation Function', 'FAIL', 'Invalid recommendations result', `Result: ${JSON.stringify(recommendations)}`);
+                        }
+                    } else {
+                        addDiagnosticResult('Recommendations', 'Generation Function', 'FAIL', 'analyzeAllRecommendations function not available');
+                    }
+                } catch (error) {
+                    addDiagnosticResult('Recommendations', 'Generation Function', 'FAIL', 'Error in recommendations generation', '', error);
+                }
+
+                // Update display
+                updateDiagnosticDisplay();
+
+                console.log('🔧 SEO Lite Issue Diagnostic Completed');
+                console.log(`📊 Results: ${diagnosticResults.filter(r => r.status === 'PASS').length} passed, ${diagnosticResults.filter(r => r.status === 'FAIL').length} failed, ${diagnosticResults.filter(r => r.status === 'WARN').length} warnings`);
+
+                if (criticalErrors.length > 0) {
+                    console.error('🚨 Critical Errors Found:', criticalErrors);
+                }
+
+            }, 3000); // Wait 3 seconds for all scripts to load
+        });
+
+        // Test keyword analysis functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const keywordInput = document.getElementById('keyword-input');
+            const analyzeBtn = document.getElementById('analyze-keyword-btn');
+
+            if (analyzeBtn) {
+                analyzeBtn.addEventListener('click', function() {
+                    console.log('🔍 Testing keyword analysis button click...');
+                    const keyword = keywordInput.value.trim();
+                    if (keyword) {
+                        console.log(`Testing keyword: "${keyword}"`);
+                        try {
+                            if (typeof analyzeKeyword === 'function') {
+                                analyzeKeyword();
+                                addDiagnosticResult('Keyword', 'Button Click Test', 'PASS', 'Button click triggered analyzeKeyword function');
+                            } else {
+                                addDiagnosticResult('Keyword', 'Button Click Test', 'FAIL', 'analyzeKeyword function not available');
+                            }
+                        } catch (error) {
+                            addDiagnosticResult('Keyword', 'Button Click Test', 'FAIL', 'Error in button click handler', '', error);
+                        }
+                        updateDiagnosticDisplay();
+                    }
+                });
+            }
+
+            if (keywordInput) {
+                keywordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        console.log('🔍 Testing keyword analysis Enter key...');
+                        try {
+                            // Test if preventDefault is working
+                            if (e.defaultPrevented) {
+                                addDiagnosticResult('Keyword', 'Enter Key Test', 'PASS', 'Enter key preventDefault working');
+                            } else {
+                                addDiagnosticResult('Keyword', 'Enter Key Test', 'WARN', 'Enter key preventDefault may not be working');
+                            }
+                            analyzeBtn.click();
+                        } catch (error) {
+                            addDiagnosticResult('Keyword', 'Enter Key Test', 'FAIL', 'Error in Enter key handler', '', error);
+                        }
+                        updateDiagnosticDisplay();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
